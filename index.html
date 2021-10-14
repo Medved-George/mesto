@@ -8,8 +8,26 @@
     <title>Mesto</title>
 </head>
 <body class="page">
-    <header class="header">
-        <img src="./images/header__logo.svg" alt="Логотип" class="header__logo">
+    <header class="header container">
+        <a href="index.html">
+            <img src="./images/header__logo.svg" alt="Логотип" class="header__logo">
+        </a>
     </header>
+    <main class="content">
+        <section class="profile content__profile container">
+            <img src="./images/avatar.jpg" alt="Аватар" class="avatar">
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="edit-button">
+                    <img src="./images/edit-button__element.svg" alt="Редактировать информацию" class="edit-button__element">
+                </button>
+                <p class="profile__job">Исследователь океана</p>
+            </div>
+            <button class="add-button">
+                <img src="./images/add-button__element.svg" alt="Добавить фото" class="add-button__element">
+            </button>
+        </section>
+        <section class="cards"></section>
+    </main>
 </body>
 </html>

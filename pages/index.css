@@ -6,6 +6,7 @@
 
 /* Page */
 @import url("../blocks/page/page.css");
+@import url("../blocks/page/_overlay/page_overlay.css");
 @import url("../blocks/page/__content/page__content.css");
 @import url("../blocks/page/__footer/page__footer.css");
 
@@ -55,10 +56,11 @@
     width: calc(100% - 38px);
     flex-direction: column;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 
 .pop-up_opened {

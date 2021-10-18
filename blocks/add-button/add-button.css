@@ -12,4 +12,9 @@
     align-items: center;
     cursor: pointer;
     background-color: #000;
+    transition: .3s;
+}
+
+.add-button:hover {
+    opacity: 0.6;
 }

@@ -11,11 +11,11 @@
     <div class="pop-up">
         <div class="pop-up__container">
             <p class="pop-up__title">Редактировать профиль</p>
-            <form action="" class="pop-up__form">
-                <input type="text" placeholder="Жак-Ив Кусто" class="pop-up__input">
-                <input type="text" placeholder="Исследователь океана" class="pop-up__input">
+            <form class="pop-up__form">
+                <input type="text" placeholder="Жак-Ив Кусто" class="pop-up__input pop-up__input_type_name">
+                <input type="text" placeholder="Исследователь океана" class="pop-up__input pop-up__input_type_job">
+                <button type="submit" class="submit-button">Сохранить</button>
             </form>
-            <button class="submit-button">Сохранить</button>
         </div>
         <button class="pop-up__close-button">
             <img src="./images/pop-up__close-button.svg" alt="Закрыть">
@@ -45,42 +45,54 @@
                 <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="card__photo">
                 <div class="card__info">
                     <p class="card__name">Карачаевск</p>
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    <button class="like-button">
+                        <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    </button>
                 </div>
             </div>
             <div class="card">
                 <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__photo">
                 <div class="card__info">
                     <p class="card__name">Гора Эльбрус</p>
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    <button class="like-button">
+                        <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    </button>
                 </div>
             </div>
             <div class="card">
                 <img src="./images/dombay.jpg" alt="Домбай" class="card__photo">
                 <div class="card__info">
                     <p class="card__name">Домбай</p>
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    <button class="like-button">
+                        <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    </button>
                 </div>
             </div>
             <div class="card">
                 <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__photo">
                 <div class="card__info">
                     <p class="card__name">Гора Эльбрус</p>
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    <button class="like-button">
+                        <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    </button>
                 </div>
             </div>
             <div class="card">
                 <img src="./images/dombay.jpg" alt="Домбай" class="card__photo">
                 <div class="card__info">
                     <p class="card__name">Домбай</p>
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    <button class="like-button">
+                        <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    </button>
                 </div>
             </div>
             <div class="card">
                 <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="card__photo">
                 <div class="card__info">
                     <p class="card__name">Карачаевск</p>
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    <button class="like-button">
+                        <img src="./images/card__like.svg" alt="Лайк" class="card__like">
+                    </button>
                 </div>
             </div>
         </section>
@@ -88,5 +100,6 @@
     <footer class="footer page__footer container">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

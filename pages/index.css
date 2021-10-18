@@ -115,6 +115,12 @@
     top: -19px;
     right: 0;
     transform: translate(-20px, -20px);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.pop-up__close-button:hover {
+    opacity: 0.6;
 }
 
 .submit-button {
@@ -132,4 +138,21 @@
     text-align: center;
     color: #FFFFFF;
     outline: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    opacity: .8;
+}
+
+.like-button {
+    padding: 0;
+    border: 0;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    opacity: .6;
 }

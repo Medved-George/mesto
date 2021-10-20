@@ -1,13 +1,17 @@
 let popUp = document.querySelector('.pop-up');
 let editButton = document.querySelector('.edit-button');
 let closeButton = document.querySelector('.pop-up__close-button');
+let page = document.querySelector('.page');
+let overlay = document.querySelector('.overlay');
 
 function openPopUp () {
     popUp.classList.add('pop-up_opened');
+    overlay.classList.add('overlay_active');
 }
 
 function closePopUp () {
     popUp.classList.remove('pop-up_opened');
+    overlay.classList.remove('overlay_active');
 }
 
 editButton.addEventListener('click', openPopUp);

@@ -1,3 +1,15 @@
 .container {
-    padding: 0 19px;
+    padding: 0 calc(50% - 141px);
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 0 calc(50% - 346px);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        padding: 0 calc(50% - 440px);
+    }
 }

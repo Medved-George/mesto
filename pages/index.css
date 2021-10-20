@@ -16,6 +16,7 @@
 /* Header */
 @import url("../blocks/header/header.css");
 @import url("../blocks/header/__logo/header__logo.css");
+@import url("../blocks/header/__logo-link/header__logo-link.css");
 
 /* Content */
 @import url("../blocks/content/content.css");
@@ -24,6 +25,7 @@
 /* Profile */
 @import url("../blocks/profile/profile.css");
 @import url("../blocks/profile/__info/profile__info.css");
+@import url("../blocks/profile/__main/profile__main.css");
 @import url("../blocks/profile/__name/profile__name.css");
 @import url("../blocks/profile/__job/profile__job.css");
 @import url("../blocks/edit-button/edit-button.css");
@@ -153,8 +155,25 @@
     border: 0;
     transition: .3s;
     cursor: pointer;
+    transition: .3s;
 }
 
 .like-button:hover {
     opacity: .6;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: #000;
+    opacity: 0.5;
+}
+
+.overlay_active {
+    display: flex;
 }

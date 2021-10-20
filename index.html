@@ -8,6 +8,7 @@
     <title>Mesto</title>
 </head>
 <body class="page">
+    <div class="overlay"></div>
     <div class="pop-up">
         <div class="pop-up__container">
             <p class="pop-up__title">Редактировать профиль</p>
@@ -22,18 +23,20 @@
         </button>
     </div>
     <header class="header container">
-        <a href="index.html" class="header__logo">
-            <img src="./images/header__logo.svg" alt="Логотип">
+        <a href="index.html" class="header__logo-link">
+            <img src="./images/header__logo.svg" alt="Логотип" class="header__logo">
         </a>
     </header>
     <main class="content page__content">
         <section class="profile container">
             <img src="./images/avatar.jpg" alt="Аватар" class="avatar">
             <div class="profile__info">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="edit-button">
-                    <img src="./images/edit-button__element.svg" alt="Редактировать информацию" class="edit-button__element">
-                </button>
+                <div class="profile__main">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="edit-button">
+                        <img src="./images/edit-button__element.svg" alt="Редактировать информацию" class="edit-button__element">
+                    </button>
+                </div>
                 <p class="profile__job">Исследователь океана</p>
             </div>
             <button class="add-button">

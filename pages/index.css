@@ -10,6 +10,10 @@
 @import url("../blocks/page/__content/page__content.css");
 @import url("../blocks/page/__footer/page__footer.css");
 
+/* Overlay */
+@import url("../blocks/overlay/overlay.css");
+@import url("../blocks/overlay/_active/overlay_active.css");
+
 /* Container */
 @import url("../blocks/container/container.css");
 
@@ -38,6 +42,8 @@
 @import url("../blocks/add-button/__element/add-button__element.css");
 @import url("../blocks/edit-button/edit-button.css");
 @import url("../blocks/edit-button/__element/edit-button__element.css");
+@import url("../blocks/submit-button/submit-button.css");
+@import url("../blocks/like-button/like-button.css");
 
 /* Cards */
 @import url("../blocks/cards/cards.css");
@@ -55,111 +61,9 @@
 /* Pop-up */
 @import url("../blocks/pop-up/pop-up.css");
 @import url("../blocks/pop-up/_opened/pop-up_opened.css");
-
-.pop-up__container {
-    padding: 25px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    position: relative;
-}
-
-.pop-up__title {
-    margin: 0;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 18px;
-    line-height: 22px;
-    color: #000000;
-    text-align: center;
-}
-
-.pop-up__form {
-    margin-top: 75px;
-    display: flex;
-    flex-direction: column;
-}
-
-.pop-up__input {
-    border: 0;
-    padding: 0 0 13px;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-    max-width: 100%;
-    margin-bottom: 30px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.pop-up__input:last-of-type {
-    margin: 0;
-}
-
-.pop-up__close-button {
-    background: none;
-    padding: 0;
-    border: 0;
-    min-height: 20px;
-    min-width: 20px;
-    position: absolute;
-    top: -19px;
-    right: 0;
-    transform: translate(-20px, -20px);
-    transition: .3s;
-    cursor: pointer;
-}
-
-.pop-up__close-button:hover {
-    opacity: 0.6;
-}
-
-.submit-button {
-    padding: 0;
-    margin-top: 45px;
-    min-height: 46px;
-    min-width: 100%;
-    background: #000000;
-    border: 0;
-    border-radius: 2px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-    color: #FFFFFF;
-    outline: none;
-    transition: .3s;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    opacity: .8;
-}
-
-.like-button {
-    padding: 0;
-    border: 0;
-    transition: .3s;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.like-button:hover {
-    opacity: .6;
-}
-
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background: #000;
-    opacity: 0.5;
-}
-
-.overlay_active {
-    display: flex;
-}
+@import url("../blocks/pop-up/__container/pop-up__container.css");
+@import url("../blocks/pop-up/__title/pop-up__title.css");
+@import url("../blocks/pop-up/__form/pop-up__form.css");
+@import url("../blocks/pop-up/__input/pop-up__input.css");
+@import url("../blocks/pop-up/__close-button/pop-up__close-button.css");
+@import url("../blocks/pop-up/__close-button-element/pop-up__close-button-element.css");

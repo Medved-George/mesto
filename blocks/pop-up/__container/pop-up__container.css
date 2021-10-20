@@ -1,0 +1,13 @@
+.pop-up__container {
+    padding: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    position: relative;
+}
+
+@media screen and (min-width: 768px) {
+    .pop-up__container {
+        padding: 35px;
+    }
+}

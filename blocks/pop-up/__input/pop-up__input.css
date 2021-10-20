@@ -1,0 +1,14 @@
+.pop-up__input {
+    border: 0;
+    padding: 0 0 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    max-width: 100%;
+    margin-bottom: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.pop-up__input:last-of-type {
+    margin: 0;
+}

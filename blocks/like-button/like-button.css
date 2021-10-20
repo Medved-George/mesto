@@ -1,0 +1,12 @@
+.like-button {
+    background: none;
+    padding: 0;
+    border: 0;
+    transition: .3s;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.like-button:hover {
+    opacity: .6;
+}

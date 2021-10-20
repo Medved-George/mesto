@@ -53,20 +53,8 @@
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 
 /* Pop-up */
-.pop-up {
-    display: none;
-    width: calc(100% - 38px);
-    flex-direction: column;
-    position: fixed;
-    z-index: 100;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.pop-up_opened {
-    display: flex;
-}
+@import url("../blocks/pop-up/pop-up.css");
+@import url("../blocks/pop-up/_opened/pop-up_opened.css");
 
 .pop-up__container {
     padding: 25px;

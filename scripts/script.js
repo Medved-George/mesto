@@ -1,17 +1,16 @@
 let popUp = document.querySelector('.pop-up');
 let editButton = document.querySelector('.edit-button');
 let closeButton = document.querySelector('.pop-up__close-button');
-<<<<<<< HEAD
 let pageOverlay = document.querySelector('.page');
 
 function openPopUp () {
     popUp.classList.add('pop-up_opened');
-    }
+}
 
 function closePopUp () {
     popUp.classList.remove('pop-up_opened');
-    }
-=======
+}
+
 let page = document.querySelector('.page');
 let overlay = document.querySelector('.overlay');
 
@@ -24,7 +23,6 @@ function closePopUp () {
     popUp.classList.remove('pop-up_opened');
     overlay.classList.remove('overlay_active');
 }
->>>>>>> develop
 
 editButton.addEventListener('click', openPopUp);
 closeButton.addEventListener('click', closePopUp);

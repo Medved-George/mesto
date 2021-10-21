@@ -3,11 +3,18 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    position: relative;
+    min-width: 282px;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 768px) {
     .pop-up__container {
         padding: 35px;
+        min-width: 430px;
     }
 }

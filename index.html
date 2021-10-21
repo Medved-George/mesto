@@ -10,7 +10,6 @@
 </head>
 
 <body class="page">
-    <div class="overlay"></div>
     <div class="pop-up">
         <div class="pop-up__container">
             <p class="pop-up__title">Редактировать профиль</p>
@@ -19,18 +18,18 @@
                 <input type="text" placeholder="Исследователь океана" class="pop-up__input pop-up__input_type_job">
                 <button type="submit" class="submit-button">Сохранить</button>
             </form>
+            <button class="pop-up__close-button">
+                <img src="./images/pop-up__close-button.svg" alt="Закрыть" class="pop-up__close-button-element">
+            </button>
         </div>
-        <button class="pop-up__close-button">
-            <img src="./images/pop-up__close-button.svg" alt="Закрыть" class="pop-up__close-button-element">
-        </button>
     </div>
     <header class="header container">
         <a href="index.html" class="header__logo-link">
             <img src="./images/header__logo.svg" alt="Логотип" class="header__logo">
         </a>
     </header>
-    <main class="content page__content">
-        <section class="profile container">
+    <main>
+        <section class="profile page__profile container">
             <img src="./images/avatar.jpg" alt="Аватар" class="avatar">
             <div class="profile__info">
                 <div class="profile__main">
@@ -46,7 +45,7 @@
                 <img src="./images/add-button__element.svg" alt="Добавить фото" class="add-button__element">
             </button>
         </section>
-        <section class="cards content__cards container">
+        <section class="cards page__cards container">
             <div class="card">
                 <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="card__photo">
                 <div class="card__info">

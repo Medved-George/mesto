@@ -1,16 +1,9 @@
 .pop-up {
     display: none;
-    min-width: 282px;
-    flex-direction: column;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
     position: fixed;
-    z-index: 100;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-@media screen and (min-width: 768px) {
-    .pop-up {
-        min-width: 430px;
-    }
+    top: 0;
 }

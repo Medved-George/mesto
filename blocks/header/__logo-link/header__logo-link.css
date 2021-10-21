@@ -1,4 +1,6 @@
 .header__logo-link {
-    display: inline-flex;
+    text-decoration: none;
     margin: 28px 0 31px;
+    display: flex;
+    max-width: max-content;
 }

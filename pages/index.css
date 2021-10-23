@@ -6,7 +6,6 @@
 
 /* Page */
 @import url("../blocks/page/page.css");
-@import url("../blocks/page/_overlay/page_overlay.css");
 @import url("../blocks/page/__profile/page__profile.css");
 @import url("../blocks/page/__cards/page__cards.css");
 @import url("../blocks/page/__footer/page__footer.css");

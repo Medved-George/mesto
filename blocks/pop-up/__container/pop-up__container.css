@@ -6,7 +6,6 @@
     max-width: 250px;
     display: flex;
     flex-direction: column;
-    margin: auto auto;
     position: relative;
     z-index: 100;
 }

@@ -1,5 +1,8 @@
 .pop-up__close-button {
     background: none;
+    background-image: url("../../../images/pop-up__close-button.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 0;
     border: 0;
     height: 20px;

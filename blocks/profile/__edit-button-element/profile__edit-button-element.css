@@ -1,10 +1,10 @@
-.edit-button__element {
+.profile__edit-button-element {
     width: 7px;
     height: 7px;
 }
 
 @media screen and (min-width: 768px) {
-    .edit-button__element {
+    .profile__edit-button-element {
         width: 10px;
         height: 10px;
     }

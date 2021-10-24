@@ -1,5 +1,5 @@
 let popUp = document.querySelector('.pop-up');
-let editButton = document.querySelector('.edit-button');
+let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.pop-up__close-button');
 let pageOverlay = document.querySelector('.page');
 

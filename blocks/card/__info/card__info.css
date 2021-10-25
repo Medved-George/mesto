@@ -1,7 +1,6 @@
 .card__info {
-    padding: 0 21px;
+    padding: 25px 21px 31px;
     background: #fff;
-    min-height: 79px;
     display: flex;
     align-items: center;
     justify-content: space-between;

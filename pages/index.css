@@ -18,10 +18,6 @@
 @import url("../blocks/header/__logo/header__logo.css");
 @import url("../blocks/header/__logo-link/header__logo-link.css");
 
-/* Content */
-@import url("../blocks/content/content.css");
-@import url("../blocks/content/__cards/content__cards.css");
-
 /* Profile */
 @import url("../blocks/profile/profile.css");
 @import url("../blocks/profile/__info/profile__info.css");
@@ -47,7 +43,6 @@
 @import url("../blocks/card/__like-button/card__like-button.css");
 
 /* Footer */
-@import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 
 /* Pop-up */

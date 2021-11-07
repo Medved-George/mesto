@@ -1,8 +1,8 @@
-let popUp = document.querySelector('.pop-up'); //Попап
-let editButton = document.querySelector('.profile__edit-button'); //Кнопка редактирования профиля
-let closeButton = document.querySelector('.pop-up__close-button'); //Кнопка закрытия попап
+const popUp = document.querySelector('.pop-up'); //Попап
+const editButton = document.querySelector('.profile__edit-button'); //Кнопка редактирования профиля
+const closeButton = document.querySelector('.pop-up__close-button'); //Кнопка закрытия попап
 
-let formElement = document.querySelector('.pop-up__form'); //Форму
+let formElement = document.querySelector('.pop-up__form');
 
 let nameInput = document.querySelector('.pop-up__input_type_name'); //Пле ввода имени
 let jobInput = document.querySelector('.pop-up__input_type_job'); //Поле ввода профессии
@@ -60,13 +60,12 @@ const initialCards = [{
     }
 ];
 
-const cardTemplate = document.querySelector('#card').content; //Получаем шаблон карточки
-const cards = document.querySelector('.cards'); //Находим контейнер, куда попадут карточки
+const cardTemplate = document.querySelector('#card').content;
+const cards = document.querySelector('.cards');
 
-
-for (let i = 0; i <= initialCards.length; i++) {
-    let cardElement = cardTemplate.querySelector('.card').cloneNode(true); //Копируем шаблон
-    cardElement.querySelector('.card__photo').src = initialCards[i].link; //Записываем в атрибутты данные из массива
-    cardElement.querySelector('.card__name').textContent = initialCards[i].name;
-    cards.append(cardElement); //Добавляем в контейнер
-}
+initialCards.forEach(item => {
+    const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+    cardElement.querySelector('.card__photo').src = item.link;
+    cardElement.querySelector('.card__name').textContent = item.name;
+    cards.append(cardElement);
+})

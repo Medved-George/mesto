@@ -10,17 +10,17 @@ let jobInput = document.querySelector('.pop-up__input_type_job'); //Поле в�
 let profileName = document.querySelector('.profile__name'); //Имя
 let profileJob = document.querySelector('.profile__job'); //Профессия
 
-function openPopUp () {
+function openPopUp() {
     popUp.classList.add('pop-up_opened'); //Открытие попап
     nameInput.value = profileName.textContent; //Записываем в поля редактирования данные из разметки
     jobInput.value = profileJob.textContent;
 }
 
-function closePopUp () {
+function closePopUp() {
     popUp.classList.remove('pop-up_opened'); //Скрытие попап
 }
 
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault();
 
     profileName.textContent = nameInput.value; //Записываем новые данные в разметку
@@ -32,4 +32,41 @@ function formSubmitHandler (evt) {
 editButton.addEventListener('click', openPopUp);
 closeButton.addEventListener('click', closePopUp);
 
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', formSubmitHandler);
+
+const initialCards = [{
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
+const cardTemplate = document.querySelector('#card').content; //Получаем шаблон карточки
+const cards = document.querySelector('.cards'); //Находим контейнер, куда попадут карточки
+
+
+for (let i = 0; i <= initialCards.length; i++) {
+    let cardElement = cardTemplate.querySelector('.card').cloneNode(true); //Копируем шаблон
+    cardElement.querySelector('.card__photo').src = initialCards[i].link; //Записываем в атрибутты данные из массива
+    cardElement.querySelector('.card__name').textContent = initialCards[i].name;
+    cards.append(cardElement); //Добавляем в контейнер
+}

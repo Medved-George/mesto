@@ -38,31 +38,50 @@
     <footer class="footer page__footer container">
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
-    <div class="pop-up">
-        <div class="pop-up__container">
-            <h3 class="pop-up__title">Редактировать профиль</h3>
-            <form class="pop-up__form" name="profile">
-                <input type="text" placeholder="Ваше имя" class="pop-up__input pop-up__input_type_name" name="name">
-                <input type="text" placeholder="Ваша профессия" class="pop-up__input pop-up__input_type_job" name="job">
-                <button type="submit" class="pop-up__submit-button">Сохранить</button>
-            </form>
-            <button class="pop-up__close-button" type="button" aria-label="close"></button>
+
+    <template id="popup">
+        <div class="pop-up">
+            <div class="pop-up__container">
+                <h3 class="pop-up__title"></h3>
+                <form class="pop-up__form" name="profile">
+                    <input type="text" class="pop-up__input 
+                                                pop-up__input_type_name
+                                                pop-up__input_type_place" name="name">
+                    <input type="text" class="pop-up__input 
+                                                pop-up__input_type_job 
+                                                pop-up__input_type_link" name="job">
+                    <button type="submit" class="pop-up__submit-button">Сохранить</button>
+                </form>
+                <button class="pop-up__close-button" type="button" aria-label="close"></button>
+            </div>
         </div>
-    </div>
+    </template>
 
     <template id="card">
         <article class="card">
-            <img class="card__photo" src="">
+            <img class="card__photo">
+            <button class="card__delete-button" type="button">
+                <img src="./images/trash.svg" alt="Удалить">
+            </button>
             <div class="card__info">
                 <h2 class="card__name"></h2>
                 <button class="card__like-button" type="button">
-                    <img src="./images/card__like.svg" alt="Лайк" class="card__like-button-element">
                 </button>
             </div>
         </article>
     </template>
 
-    <script src="./scripts/script.js"></script>
+    <template id="photo">
+        <div class="photo">
+            <figure class="photo__container">
+                <img class="photo__img">
+                <figcaption class="photo__title"></figcaption>
+                <button class="photo__close-button" type="button" aria-label="close"></button>
+            </figure>
+        </div>
+    </template>
+
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>

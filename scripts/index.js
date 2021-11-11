@@ -71,26 +71,23 @@ function formSubmitHandler(evt) {
 }
 
 //Создание карточки
-const newCard = () => {
+const getNewCard = () => {
     const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
     return createdCard;
 }
 
 function photoSubmitHandler(evt) {
     evt.preventDefault();
-    cards.prepend(newCard());
-    newCard().querySelector('.card__photo').src = linkInput.value;
-    newCard().querySelector('.card__name').textContent = placeInput.value;
-    initialCards.push({
-        name: placeInput.value,
-        link: linkInput.value
-    })
+    cards.prepend(getNewCard());
+    getNewCard().querySelector('.card__photo').src = linkInput.value;
+    getNewCard().querySelector('.card__name').textContent = placeInput.value;
     closePopup(popupForCard);
 }
 
 function cardsRender() {
     initialCards.forEach(item => {
-        const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+        const cardElement = getNewCard();
+
         cardElement.querySelector('.card__photo').src = item.link;
         cardElement.querySelector('.card__name').textContent = item.name;
         cards.append(cardElement);

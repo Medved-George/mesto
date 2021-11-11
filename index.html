@@ -38,24 +38,35 @@
     <footer class="footer page__footer container">
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
-
-    <template id="popup">
-        <div class="pop-up">
-            <div class="pop-up__container">
-                <h3 class="pop-up__title"></h3>
-                <form class="pop-up__form" name="profile">
-                    <input type="text" class="pop-up__input 
-                                                pop-up__input_type_name
-                                                pop-up__input_type_place" name="name">
-                    <input type="text" class="pop-up__input 
-                                                pop-up__input_type_job 
-                                                pop-up__input_type_link" name="job">
-                    <button type="submit" class="pop-up__submit-button">Сохранить</button>
-                </form>
-                <button class="pop-up__close-button" type="button" aria-label="close"></button>
-            </div>
+    <div class="pop-up pop-up_type_profile">
+        <div class="pop-up__container">
+            <h3 class="pop-up__title"></h3>
+            <form class="pop-up__form" name="profile">
+                <input type="text" class="pop-up__input pop-up__input_type_name" name="name">
+                <input type="text" class="pop-up__input pop-up__input_type_job" name="job">
+                <button type="submit" class="pop-up__submit-button">Сохранить</button>
+            </form>
+            <button class="pop-up__close-button" type="button" aria-label="close"></button>
         </div>
-    </template>
+    </div>
+    <div class="pop-up pop-up_type_card">
+        <div class="pop-up__container">
+            <h3 class="pop-up__title"></h3>
+            <form class="pop-up__form" name="profile">
+                <input type="text" class="pop-up__input pop-up__input_type_place" name="name">
+                <input type="text" class="pop-up__input pop-up__input_type_link" name="job">
+                <button type="submit" class="pop-up__submit-button">Сохранить</button>
+            </form>
+            <button class="pop-up__close-button" type="button" aria-label="close"></button>
+        </div>
+    </div>
+    <div class="photo">
+        <figure class="photo__container">
+            <img class="photo__img">
+            <figcaption class="photo__title"></figcaption>
+            <button class="photo__close-button" type="button" aria-label="close"></button>
+        </figure>
+    </div>
 
     <template id="card">
         <article class="card">
@@ -69,16 +80,6 @@
                 </button>
             </div>
         </article>
-    </template>
-
-    <template id="photo">
-        <div class="photo">
-            <figure class="photo__container">
-                <img class="photo__img">
-                <figcaption class="photo__title"></figcaption>
-                <button class="photo__close-button" type="button" aria-label="close"></button>
-            </figure>
-        </div>
     </template>
 
     <script src="./scripts/index.js"></script>

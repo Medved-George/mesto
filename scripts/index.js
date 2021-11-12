@@ -19,7 +19,8 @@ const linkInput = popupForCard.querySelector('.pop-up__input_type_link');
 
 //Модалка для фото
 const popupForPhoto = document.querySelector('.pop-up_type_photo');
-
+const photoImg = document.querySelector('.photo__img');
+const photoTitle = document.querySelector('.photo__title');
 const photoCloseBtn = popupForPhoto.querySelectorAll('.photo__close-button');
 
 const cardTemplate = document.querySelector('#card').content; //Шаблон карточки
@@ -72,6 +73,11 @@ function formSubmitHandler(evt) {
 //Создание карточки
 const getNewCard = () => {
     const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
+    cards.append(createdCard);
+    const deleteButton = createdCard.querySelector('.card__delete-button');
+    deleteButton.addEventListener('click', () => deleteCard(deleteButton));
+    const likeButton = createdCard.querySelector('.card__like-button');
+    likeButton.addEventListener('click', () => likeCard(likeButton));
     return createdCard;
 }
 
@@ -89,25 +95,15 @@ function cardsRender() {
 
         cardElement.querySelector('.card__photo').src = item.link;
         cardElement.querySelector('.card__name').textContent = item.name;
-        cards.append(cardElement);
     });
 }
 
-function deleteCard() {
-    let deleteButton = document.querySelectorAll('.card__delete-button');
-    deleteButton.forEach(item => {
-        item.addEventListener('click', () => {
-            const deleteElement = item.closest('.card');
-            deleteElement.remove();
-        });
-    });
+function deleteCard(deleteButton) {
+    deleteButton.closest('.card').remove();
 }
 
-function likeCard() {
-    let likeButton = document.querySelectorAll('.card__like-button');
-    likeButton.forEach(item => {
-        item.addEventListener('click', () => item.classList.toggle('card__like-button_active'));
-    });
+function likeCard(likeButton) {
+    likeButton.classList.toggle('card__like-button_active');
 }
 
 editButton.addEventListener('click', () => {
@@ -135,11 +131,7 @@ newCardButton.addEventListener('click', () => {
 
 cardsRender();
 
-const card = document.querySelectorAll('.card');
 const cardPhoto = document.querySelectorAll('.card__photo');
-const cardName = document.querySelectorAll('.card__name');
-const photoImg = document.querySelector('.photo__img');
-const photoTitle = document.querySelector('.photo__title');
 
 function previewCard(photoData) {
     openPopup(popupForPhoto);

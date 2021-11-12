@@ -83,18 +83,20 @@ const getNewCard = () => {
 
 function photoSubmitHandler(evt) {
     evt.preventDefault();
-    cards.prepend(getNewCard());
-    getNewCard().querySelector('.card__photo').src = linkInput.value;
-    getNewCard().querySelector('.card__name').textContent = placeInput.value;
+    const newCard = getNewCard();
+    cards.prepend(newCard);
+    newCard.querySelector('.card__photo').src = linkInput.value;
+    newCard.querySelector('.card__name').textContent = placeInput.value;
+    newCard.querySelector('.card__photo').alt = newCard.querySelector('.card__name').textContent;
     closePopup(popupForCard);
 }
 
 function cardsRender() {
     initialCards.forEach(item => {
         const cardElement = getNewCard();
-
         cardElement.querySelector('.card__photo').src = item.link;
         cardElement.querySelector('.card__name').textContent = item.name;
+        cardElement.querySelector('.card__photo').alt = cardElement.querySelector('.card__name').textContent;
     });
 }
 

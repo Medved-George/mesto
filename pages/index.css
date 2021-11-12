@@ -58,8 +58,6 @@
 @import url("../blocks/pop-up/__submit-button/pop-up__submit-button.css");
 
 /* Photo */
-@import url("../blocks/photo/photo.css");
-@import url("../blocks/photo/_opened/photo_opened.css");
 @import url("../blocks/photo/__container/photo__container.css");
 @import url("../blocks/photo/__img/photo__img.css");
 @import url("../blocks/photo/__title/photo__title.css");

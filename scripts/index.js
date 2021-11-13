@@ -78,6 +78,8 @@ const getNewCard = () => {
     deleteButton.addEventListener('click', () => deleteCard(deleteButton));
     const likeButton = createdCard.querySelector('.card__like-button');
     likeButton.addEventListener('click', () => likeCard(likeButton));
+    const cardPhoto = createdCard.querySelector('.card__photo');
+    cardPhoto.addEventListener('click', () => previewCard(cardPhoto));
     return createdCard;
 }
 
@@ -98,6 +100,12 @@ function cardsRender() {
         cardElement.querySelector('.card__name').textContent = item.name;
         cardElement.querySelector('.card__photo').alt = cardElement.querySelector('.card__name').textContent;
     });
+}
+
+function previewCard(photoData) {
+    openPopup(popupForPhoto);
+    photoImg.src = photoData.src;
+    photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
 }
 
 function deleteCard(deleteButton) {
@@ -133,13 +141,4 @@ newCardButton.addEventListener('click', () => {
 
 cardsRender();
 
-const cardPhoto = document.querySelectorAll('.card__photo');
-
-function previewCard(photoData) {
-    openPopup(popupForPhoto);
-    photoImg.src = photoData.src;
-    photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
-}
-
-cardPhoto.forEach(item => item.addEventListener('click', () => previewCard(item)));
 photoCloseBtn.forEach(item => item.addEventListener('click', () => closePopup(popupForPhoto)));

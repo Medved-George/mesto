@@ -19,9 +19,9 @@ const linkInput = popupForCard.querySelector('.pop-up__input_type_link');
 
 //Модалка для фото
 const popupForPhoto = document.querySelector('.pop-up_type_photo');
-const photoImg = document.querySelector('.photo__img');
-const photoTitle = document.querySelector('.photo__title');
-const photoCloseBtn = popupForPhoto.querySelectorAll('.photo__close-button');
+const photoImg = popupForPhoto.querySelector('.photo__img');
+const photoTitle = popupForPhoto.querySelector('.photo__title');
+const photoCloseBtn = popupForPhoto.querySelector('.photo__close-button');
 
 const cardTemplate = document.querySelector('#card').content; //Шаблон карточки
 
@@ -106,6 +106,7 @@ function previewCard(photoData) {
     openPopup(popupForPhoto);
     photoImg.src = photoData.src;
     photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
+    photoImg.alt = photoTitle.textContent;
 }
 
 function deleteCard(deleteButton) {
@@ -123,9 +124,6 @@ editButton.addEventListener('click', () => {
     jobInput.value = profileJob.textContent;
     nameInput.setAttribute('placeholder', 'Ваше имя');
     jobInput.setAttribute('placeholder', 'Ваша профессия');
-
-    closeButtonForProfile.addEventListener('click', () => closePopup(popupForProfile));
-    formElementForProfile.addEventListener('submit', formSubmitHandler);
 });
 
 newCardButton.addEventListener('click', () => {
@@ -135,10 +133,12 @@ newCardButton.addEventListener('click', () => {
     placeInput.setAttribute('placeholder', 'Название');
     linkInput.value = '';
     linkInput.setAttribute('placeholder', 'Ссылка на картинку');
-    closeButtonForCard.addEventListener('click', () => closePopup(popupForCard));
-    formElementForCard.addEventListener('submit', photoSubmitHandler);
 });
 
 cardsRender();
 
-photoCloseBtn.forEach(item => item.addEventListener('click', () => closePopup(popupForPhoto)));
+closeButtonForProfile.addEventListener('click', () => closePopup(popupForProfile));
+formElementForProfile.addEventListener('submit', formSubmitHandler);
+closeButtonForCard.addEventListener('click', () => closePopup(popupForCard));
+formElementForCard.addEventListener('submit', photoSubmitHandler);
+photoCloseBtn.addEventListener('click', () => closePopup(popupForPhoto));

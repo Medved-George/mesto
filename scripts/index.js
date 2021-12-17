@@ -18,17 +18,10 @@ const placeInput = popupForCard.querySelector('.popup__input_type_place');
 const linkInput = popupForCard.querySelector('.popup__input_type_link');
 
 //Модалка для фото
-<<<<<<< HEAD
 const popupForPhoto = document.querySelector('.pop-up_type_photo');
 const photoImg = popupForPhoto.querySelector('.photo__img');
 const photoTitle = popupForPhoto.querySelector('.photo__title');
 const photoCloseBtn = popupForPhoto.querySelector('.photo__close-button');
-=======
-const popupForPhoto = document.querySelector('.popup_type_photo');
-const photoImg = document.querySelector('.photo__img');
-const photoTitle = document.querySelector('.photo__title');
-const photoCloseBtn = popupForPhoto.querySelectorAll('.photo__close-button');
->>>>>>> develop
 
 const cardTemplate = document.querySelector('#card').content; //Шаблон карточки
 
@@ -124,12 +117,7 @@ function previewCard(photoData) {
     openPopup(popupForPhoto);
     photoImg.src = photoData.src;
     photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
-<<<<<<< HEAD
     photoImg.alt = photoTitle.textContent;
-=======
-
-    overlay.addEventListener('click', () => closePopup(popupForPhoto));
->>>>>>> develop
 }
 
 function deleteCard(deleteButton) {
@@ -150,13 +138,6 @@ editButton.addEventListener('click', () => {
     jobInput.value = profileJob.textContent;
     nameInput.setAttribute('placeholder', 'Ваше имя');
     jobInput.setAttribute('placeholder', 'Ваша профессия');
-<<<<<<< HEAD
-=======
-
-    closeButtonForProfile.addEventListener('click', () => closePopup(popupForProfile));
-    overlay.addEventListener('click', () => closePopup(popupForProfile));
-    formElementForProfile.addEventListener('submit', formSubmitHandler);
->>>>>>> develop
 });
 
 newCardButton.addEventListener('click', () => {
@@ -169,13 +150,6 @@ newCardButton.addEventListener('click', () => {
     placeInput.setAttribute('placeholder', 'Название');
     linkInput.value = '';
     linkInput.setAttribute('placeholder', 'Ссылка на картинку');
-<<<<<<< HEAD
-=======
-
-    closeButtonForCard.addEventListener('click', () => closePopup(popupForCard));
-    overlay.addEventListener('click', () => closePopup(popupForCard));
-    formElementForCard.addEventListener('submit', photoSubmitHandler);
->>>>>>> develop
 });
 
 cardsRender();

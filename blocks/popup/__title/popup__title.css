@@ -1,4 +1,4 @@
-.pop-up__title {
+.popup__title {
     margin: 0;
     font-style: normal;
     font-weight: 900;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .pop-up__title {
+    .popup__title {
         text-align: left;
         font-size: 24px;
         line-height: 29px;

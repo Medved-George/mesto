@@ -1,0 +1,4 @@
+.popup__error_visible {
+    display: flex;
+    max-width: 350px;
+}

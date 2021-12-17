@@ -18,10 +18,10 @@ const placeInput = popupForCard.querySelector('.popup__input_type_place');
 const linkInput = popupForCard.querySelector('.popup__input_type_link');
 
 //Модалка для фото
-const popupForPhoto = document.querySelector('.pop-up_type_photo');
+const popupForPhoto = document.querySelector('.popup_type_photo');
 const photoImg = popupForPhoto.querySelector('.photo__img');
 const photoTitle = popupForPhoto.querySelector('.photo__title');
-const photoCloseBtn = popupForPhoto.querySelector('.photo__close-button');
+const photoCloseBtn = popupForPhoto.querySelectorAll('.photo__close-button');
 
 const cardTemplate = document.querySelector('#card').content; //Шаблон карточки
 
@@ -118,6 +118,8 @@ function previewCard(photoData) {
     photoImg.src = photoData.src;
     photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
     photoImg.alt = photoTitle.textContent;
+
+    overlay.addEventListener('click', () => closePopup(popupForPhoto));
 }
 
 function deleteCard(deleteButton) {

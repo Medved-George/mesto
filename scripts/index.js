@@ -140,6 +140,10 @@ editButton.addEventListener('click', () => {
     jobInput.value = profileJob.textContent;
     nameInput.setAttribute('placeholder', 'Ваше имя');
     jobInput.setAttribute('placeholder', 'Ваша профессия');
+
+    closeButtonForProfile.addEventListener('click', () => closePopup(popupForProfile));
+    overlay.addEventListener('click', () => closePopup(popupForProfile));
+    formElementForProfile.addEventListener('submit', formSubmitHandler);
 });
 
 newCardButton.addEventListener('click', () => {
@@ -152,12 +156,12 @@ newCardButton.addEventListener('click', () => {
     placeInput.setAttribute('placeholder', 'Название');
     linkInput.value = '';
     linkInput.setAttribute('placeholder', 'Ссылка на картинку');
+
+    closeButtonForCard.addEventListener('click', () => closePopup(popupForCard));
+    overlay.addEventListener('click', () => closePopup(popupForCard));
+    formElementForCard.addEventListener('submit', photoSubmitHandler);
 });
 
 cardsRender();
 
-closeButtonForProfile.addEventListener('click', () => closePopup(popupForProfile));
-formElementForProfile.addEventListener('submit', formSubmitHandler);
-closeButtonForCard.addEventListener('click', () => closePopup(popupForCard));
-formElementForCard.addEventListener('submit', photoSubmitHandler);
-photoCloseBtn.addEventListener('click', () => closePopup(popupForPhoto));
+photoCloseBtn.forEach(item => item.addEventListener('click', () => closePopup(popupForPhoto)));

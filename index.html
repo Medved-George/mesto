@@ -39,15 +39,14 @@
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
     <div class="popup popup_type_profile">
-        <div class="popup__overlay"></div>
         <div class="popup__container">
-            <h3 class="popup__title"></h3>
-            <form class="popup__form" name="profile" required novalidate>
+            <h3 class="popup__title">Редактирование профиля</h3>
+            <form class="popup__form popup__form_type_profile" name="profile" required novalidate>
                 <input type="text" class="popup__input popup__input_type_name" id="name" name="name" required
-                    minlength="2" maxlength="40">
+                    minlength="2" maxlength="40" placeholder="Ваше имя">
                 <span id="name-error" class="popup__error"></span>
                 <input type="text" class="popup__input popup__input_type_job" id="job" name="job" required minlength="2"
-                    maxlength="200">
+                    maxlength="200" placeholder="Ваша профессия">
                 <span id="job-error" class="popup__error"></span>
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
@@ -55,14 +54,14 @@
         </div>
     </div>
     <div class="popup popup_type_card">
-        <div class="popup__overlay"></div>
         <div class="popup__container">
-            <h3 class="popup__title"></h3>
-            <form class="popup__form" name="new-card" required novalidate>
+            <h3 class="popup__title">Новое место</h3>
+            <form class="popup__form popup__form_type_card" name="new-card" required novalidate>
                 <input type="text" class="popup__input popup__input_type_place" id="card-name" name="title" required
-                    minlength="2" maxlength="30">
+                    minlength="2" maxlength="30" placeholder="Название">
                 <span id="card-name-error" class="popup__error"></span>
-                <input type="url" class="popup__input popup__input_type_link" id="card-link" name="link" required>
+                <input type="url" class="popup__input popup__input_type_link" id="card-link" name="link" required
+                    placeholder="Ссылка на изображение">
                 <span id="card-link-error" class="popup__error"></span>
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
@@ -70,11 +69,10 @@
         </div>
     </div>
     <div class="popup popup_type_photo photo">
-        <div class="popup__overlay"></div>
         <figure class="photo__container">
             <img class="photo__img">
             <figcaption class="photo__title"></figcaption>
-            <button class="photo__close-button" type="button" aria-label="close"></button>
+            <button class="popup__close-button photo__close-button" type="button" aria-label="close"></button>
         </figure>
     </div>
 

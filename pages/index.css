@@ -49,9 +49,8 @@
 
 /* Pop-up */
 @import url("../blocks/popup/popup.css");
-@import url("../blocks/popup/__overlay/popup__overlay.css");
-@import url("../blocks/popup/__overlay/_active/popup__overlay_active.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
+@import url("../blocks/popup/__overlay-hover/popup__overlay-hover.css");
 @import url("../blocks/popup/__container/popup__container.css");
 @import url("../blocks/popup/__title/popup__title.css");
 @import url("../blocks/popup/__form/popup__form.css");

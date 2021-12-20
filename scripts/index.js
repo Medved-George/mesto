@@ -3,15 +3,16 @@ const newCardButton = document.querySelector('.profile__add-button'); //Кноп
 const page = document.querySelector('.page');
 const cards = document.querySelector('.cards'); //Контейнер для карточек
 const popups = document.querySelectorAll('.popup');
-const forms = document.querySelectorAll('.popup__form');
 
 //Модалка для профиля
 const popupForProfile = document.querySelector('.popup_type_profile');
+const popupFormForProfile = popupForProfile.querySelector('.popup__form');
 const nameInput = popupForProfile.querySelector('.popup__input_type_name');
 const jobInput = popupForProfile.querySelector('.popup__input_type_job');
 
 //Модалка для добавления карточки
 const popupForCard = document.querySelector('.popup_type_card');
+const popupFormForCard = popupForCard.querySelector('.popup__form');
 const placeInput = popupForCard.querySelector('.popup__input_type_place');
 const linkInput = popupForCard.querySelector('.popup__input_type_link');
 
@@ -55,11 +56,6 @@ const initialCards = [{
 function openPopup(element) {
     element.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupHandler);
-    element.addEventListener('click', (evt) => {
-        if (evt.target === element) {
-            closePopup(element)
-        };
-    });
 }
 
 function closePopup(element) {
@@ -81,48 +77,42 @@ function handleProfileSubmit() {
 }
 
 function handlePhotoSubmit() {
-    cards.prepend(createCard());
+    cards.prepend(getNewCard(linkInput.value, placeInput.value));
     closePopup(popupForCard);
 }
 
 const createCard = () => {
     const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
+    return createdCard;
+};
+
+const getNewCard = (link, name) => {
+    const createdCard = createCard();
     const deleteButton = createdCard.querySelector('.card__delete-button');
     const likeButton = createdCard.querySelector('.card__like-button');
     const cardPhoto = createdCard.querySelector('.card__photo');
+    const cardName = createdCard.querySelector('.card__name');
 
-
-    createdCard.querySelector('.card__photo').src = linkInput.value;
-    createdCard.querySelector('.card__name').textContent = placeInput.value;
-    createdCard.querySelector('.card__photo').alt = createdCard.querySelector('.card__name').textContent;
+    cardPhoto.src = link;
+    cardName.textContent = name;
+    cardPhoto.alt = cardName.textContent;
 
     deleteButton.addEventListener('click', () => deleteCard(deleteButton));
     likeButton.addEventListener('click', () => likeCard(likeButton));
     cardPhoto.addEventListener('click', () => previewCard(cardPhoto));
+
     return createdCard;
 };
 
-const createInitialCards = (item) => {
-    const cardElement = createCard();
-    cardElement.querySelector('.card__photo').src = item.link;
-    cardElement.querySelector('.card__name').textContent = item.name;
-    cardElement.querySelector('.card__photo').alt = cardElement.querySelector('.card__name').textContent;
-    return cardElement;
-};
-
-const initialCardsRender = () => {
-    initialCards.forEach(item => cards.append(createInitialCards(item)));
+const renderInitialCards = () => {
+    initialCards.forEach(item => cards.append(getNewCard(item.link, item.name)));
 };
 
 function previewCard(photoData) {
-    const photoCloseBtn = popupForPhoto.querySelector('.popup__close-button');
-
     openPopup(popupForPhoto);
     photoImg.src = photoData.src;
     photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
     photoImg.alt = photoTitle.textContent;
-
-    photoCloseBtn.addEventListener('click', () => closePopup(popupForPhoto));
 }
 
 function deleteCard(deleteButton) {
@@ -140,12 +130,9 @@ popups.forEach(popup => {
     });
 });
 
-forms.forEach(form => {
-    form.addEventListener('submit', evt => {
-        if (evt.target.classList.contains('popup__form_type_profile')) handleProfileSubmit();
-        else if (evt.target.classList.contains('popup__form_type_card')) handlePhotoSubmit();
-    });
-});
+popupFormForProfile.addEventListener('submit', handleProfileSubmit);
+
+popupFormForCard.addEventListener('submit', handlePhotoSubmit);
 
 editButton.addEventListener('click', () => {
 
@@ -163,4 +150,4 @@ newCardButton.addEventListener('click', () => {
     linkInput.value = '';
 });
 
-initialCardsRender();
+renderInitialCards();

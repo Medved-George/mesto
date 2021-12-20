@@ -38,15 +38,15 @@ const setInputValidation = (form, {
     inputSelector,
     submitButtonSelector,
     inactiveButtonClass,
-    ...rest
+    ...other
 }) => {
     const inputs = Array.from(form.querySelectorAll(inputSelector));
     const submitButton = form.querySelector(submitButtonSelector);
     toggleButtonError(inputs, submitButton, inactiveButtonClass);
     inputs.forEach((input) => {
         input.addEventListener('input', () => {
+            checkIfInputIsValid(form, input, other);
             toggleButtonError(inputs, submitButton, inactiveButtonClass);
-            checkIfInputIsValid(form, input, rest);
         });
     });
 };

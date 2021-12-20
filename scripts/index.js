@@ -15,6 +15,7 @@ const popupForCard = document.querySelector('.popup_type_card');
 const popupFormForCard = popupForCard.querySelector('.popup__form');
 const placeInput = popupForCard.querySelector('.popup__input_type_place');
 const linkInput = popupForCard.querySelector('.popup__input_type_link');
+const submitButtonForPhoto = popupForCard.querySelector('.popup__button');
 
 //Модалка для фото
 const popupForPhoto = document.querySelector('.popup_type_photo');
@@ -79,15 +80,16 @@ function handleProfileSubmit() {
 function handlePhotoSubmit() {
     cards.prepend(getNewCard(linkInput.value, placeInput.value));
     closePopup(popupForCard);
+    placeInput.value = '';
+    linkInput.value = '';
+    if ((placeInput.value && linkInput.value) === '') {
+        submitButtonForPhoto.classList.add('popup__button_disabled');
+        submitButtonForPhoto.disabled = true;
+    };
 }
 
-const createCard = () => {
-    const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
-    return createdCard;
-};
-
 const getNewCard = (link, name) => {
-    const createdCard = createCard();
+    const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
     const deleteButton = createdCard.querySelector('.card__delete-button');
     const likeButton = createdCard.querySelector('.card__like-button');
     const cardPhoto = createdCard.querySelector('.card__photo');
@@ -111,8 +113,8 @@ const renderInitialCards = () => {
 function previewCard(photoData) {
     openPopup(popupForPhoto);
     photoImg.src = photoData.src;
-    photoTitle.textContent = photoData.parentNode.querySelector('.card__name').textContent;
-    photoImg.alt = photoTitle.textContent;
+    photoTitle.textContent = photoData.alt;
+    photoImg.alt = photoData.alt;
 }
 
 function deleteCard(deleteButton) {
@@ -143,11 +145,7 @@ editButton.addEventListener('click', () => {
 });
 
 newCardButton.addEventListener('click', () => {
-
     openPopup(popupForCard);
-
-    placeInput.value = '';
-    linkInput.value = '';
 });
 
 renderInitialCards();

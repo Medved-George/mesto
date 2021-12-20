@@ -42,6 +42,7 @@ const setInputValidation = (form, {
 }) => {
     const inputs = Array.from(form.querySelectorAll(inputSelector));
     const submitButton = form.querySelector(submitButtonSelector);
+
     toggleButtonError(inputs, submitButton, inactiveButtonClass);
     inputs.forEach((input) => {
         input.addEventListener('input', () => {

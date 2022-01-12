@@ -149,3 +149,6 @@ newCardButton.addEventListener('click', () => {
 });
 
 renderInitialCards();
+
+import Card from './card.js';
+import FormValidator from './validation';

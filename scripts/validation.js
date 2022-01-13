@@ -1,5 +1,5 @@
-class FormValidator {
-    constructor() {}
-}
+// class FormValidator {
+//     constructor() {}
+// }
 
-export default FormValidator;
+// export default FormValidator;

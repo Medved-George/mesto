@@ -1,19 +1,26 @@
-class FormValidator {
-    constructor(selector) {
-        this._selector = selector;
+import {
+    placeInput,
+    linkInput,
+    submitButtonForPhoto
+} from "./index.js";
+
+export class FormValidator {
+    constructor(formSelector, selectors) {
+        this._formSelector = formSelector;
+        this._selectors = selectors;
     }
-    enableValidation({
-        formSelector,
-        ...other
-    }) {
-        const forms = Array.from(document.querySelectorAll(formSelector));
-        forms.forEach((form) => {
-            form.addEventListener('submit', (evt) => {
-                evt.preventDefault();
-            });
-            this._setInputValidation(form, other);
+    enableValidation() {
+        this._formSelector.addEventListener('submit', (evt) => {
+            evt.preventDefault();
         });
+        this._setInputValidation(this._formSelector, this._selectors);
     };
+    disableSubmitBtn() {
+        if ((placeInput.value && linkInput.value) === '') {
+            submitButtonForPhoto.classList.add('popup__button_disabled');
+            submitButtonForPhoto.disabled = true;
+        };
+    }
     _setInputValidation(form, {
         inputSelector,
         submitButtonSelector,
@@ -63,5 +70,3 @@ class FormValidator {
         errorMessage.classList.remove(errorClass);
     };
 }
-
-export default FormValidator;

@@ -1,3 +1,13 @@
+import {
+    initialCards
+} from './initial-cards.js';
+import {
+    Card
+} from './card.js';
+import {
+    FormValidator
+} from './formValidator.js';
+
 const editButton = document.querySelector('.profile__edit-button');
 const newCardButton = document.querySelector('.profile__add-button');
 const cards = document.querySelector('.cards');
@@ -12,9 +22,9 @@ const jobInput = popupForProfile.querySelector('.popup__input_type_job');
 //Модалка для добавления карточки
 const popupForCard = document.querySelector('.popup_type_card');
 const popupFormForCard = popupForCard.querySelector('.popup__form');
-const placeInput = popupForCard.querySelector('.popup__input_type_place');
-const linkInput = popupForCard.querySelector('.popup__input_type_link');
-const submitButtonForPhoto = popupForCard.querySelector('.popup__button');
+export const placeInput = popupForCard.querySelector('.popup__input_type_place');
+export const linkInput = popupForCard.querySelector('.popup__input_type_link');
+export const submitButtonForPhoto = popupForCard.querySelector('.popup__button');
 
 //Модалка для фото
 export const popupForPhoto = document.querySelector('.popup_type_photo');
@@ -24,44 +34,17 @@ export const photoTitle = popupForPhoto.querySelector('.photo__title');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 
-//Массив с карточками
-const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
 export function openPopup(element) {
     element.classList.add('popup_opened');
-    document.addEventListener('keydown', closePopupHandler);
+    document.addEventListener('keydown', closePopupByEsc);
 }
 
 function closePopup(element) {
     element.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closePopupHandler);
+    document.removeEventListener('keydown', closePopupByEsc);
 }
 
-const closePopupHandler = (evt) => {
+const closePopupByEsc = (evt) => {
     if (evt.key === 'Escape') {
         const popup = document.querySelector('.popup_opened');
         closePopup(popup);
@@ -74,22 +57,22 @@ function handleProfileSubmit() {
     closePopup(popupForProfile);
 }
 
+const createCard = (link, name) => {
+    const templateCard = document.querySelector('#card').content.querySelector('.card').cloneNode(true);
+    const newCard = new Card(link, name, templateCard).renderCard();
+    return newCard;
+}
+
 function handlePhotoSubmit() {
-    const newCard = new Card(linkInput.value, placeInput.value).renderCard();
-    cards.prepend(newCard);
+    cards.prepend(createCard(linkInput.value, placeInput.value));
     closePopup(popupForCard);
     placeInput.value = '';
     linkInput.value = '';
-    if ((placeInput.value && linkInput.value) === '') {
-        submitButtonForPhoto.classList.add('popup__button_disabled');
-        submitButtonForPhoto.disabled = true;
-    };
 }
 
 const renderInitialCards = () => {
     initialCards.forEach(item => {
-        const newInitialCard = new Card(item.link, item.name).renderCard();
-        cards.append(newInitialCard);
+        cards.append(createCard(item.link, item.name));
     })
 };
 
@@ -118,16 +101,20 @@ newCardButton.addEventListener('click', () => {
 
 renderInitialCards();
 
-const validation = new FormValidator();
-
-validation.enableValidation({
-    formSelector: '.popup__form',
+const selectorsForValidation = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
-});
+};
 
-import Card from './card.js';
-import FormValidator from './formValidator.js';
+const addValidator = (form, selectors) => {
+    const newValidator = new FormValidator(form, selectors);
+    newValidator.enableValidation();
+    newValidator.disableSubmitBtn();
+    return newValidator;
+}
+
+const addCardFormValidator = addValidator(popupFormForCard, selectorsForValidation);
+const editProfileFormValidator = addValidator(popupFormForProfile, selectorsForValidation);

@@ -1,10 +1,18 @@
-class Card {
-    constructor(link, name) {
+import {
+    openPopup,
+    popupForPhoto,
+    photoImg,
+    photoTitle
+} from "./index.js";
+
+export class Card {
+    constructor(link, name, selector) {
         this._link = link;
         this._name = name;
+        this._selector = selector;
     }
     _getTemplate() {
-        return document.querySelector('#card').content.querySelector('.card').cloneNode(true);
+        return this._selector;
     }
     _getCard() {
         this._card = this._getTemplate();
@@ -42,11 +50,3 @@ class Card {
         return this._getCard();
     }
 }
-
-export default Card;
-import {
-    openPopup,
-    popupForPhoto,
-    photoImg,
-    photoTitle
-} from "./index.js";

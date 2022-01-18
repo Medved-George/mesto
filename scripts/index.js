@@ -118,5 +118,16 @@ newCardButton.addEventListener('click', () => {
 
 renderInitialCards();
 
+const validation = new FormValidator();
+
+validation.enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+});
+
 import Card from './card.js';
-// import FormValidator from './validation.js';
+import FormValidator from './formValidator.js';

@@ -1,9 +1,3 @@
-import {
-    placeInput,
-    linkInput,
-    submitButtonForPhoto
-} from "./index.js";
-
 export class FormValidator {
     constructor(formSelector, selectors) {
         this._formSelector = formSelector;
@@ -16,8 +10,13 @@ export class FormValidator {
         this._setInputValidation(this._formSelector, this._selectors);
     };
     disableSubmitBtn() {
+        const popupForCard = document.querySelector('.popup_type_card');
+        const placeInput = popupForCard.querySelector('.popup__input_type_place');
+        const linkInput = popupForCard.querySelector('.popup__input_type_link');
+        const submitButtonForPhoto = popupForCard.querySelector('.popup__button');
+
         if ((placeInput.value && linkInput.value) === '') {
-            submitButtonForPhoto.classList.add('popup__button_disabled');
+            submitButtonForPhoto.classList.add(this._selectors.inactiveButtonClass);
             submitButtonForPhoto.disabled = true;
         };
     }
@@ -31,10 +30,11 @@ export class FormValidator {
         const submitButton = form.querySelector(submitButtonSelector);
 
         this._toggleButtonError(inputs, submitButton, inactiveButtonClass);
+
         inputs.forEach((input) => {
             input.addEventListener('input', () => {
-                this._checkIfInputIsValid(form, input, other);
                 this._toggleButtonError(inputs, submitButton, inactiveButtonClass);
+                this._checkIfInputIsValid(form, input, other);
             });
         });
     };

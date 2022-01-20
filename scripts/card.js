@@ -1,9 +1,6 @@
 import {
-    openPopup,
-    popupForPhoto,
-    photoImg,
-    photoTitle
-} from "./index.js";
+    openPopup
+} from "./utils/function.js";
 
 export class Card {
     constructor(link, name, selector) {
@@ -34,7 +31,12 @@ export class Card {
         this._card.querySelector('.card__like-button').classList.toggle('card__like-button_active');
     }
     _previewCard(photo) {
+        const popupForPhoto = document.querySelector('.popup_type_photo');
+        const photoImg = popupForPhoto.querySelector('.photo__img');
+        const photoTitle = popupForPhoto.querySelector('.photo__title');
+
         openPopup(popupForPhoto);
+
         photoImg.src = photo.src;
         photoTitle.textContent = photo.alt;
         photoImg.alt = photo.alt;

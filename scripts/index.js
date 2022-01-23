@@ -10,7 +10,7 @@ import {
 import {
     openPopup,
     closePopup
-} from "./utils/function.js";
+} from "./utils/utils.js";
 
 const editButton = document.querySelector('.profile__edit-button');
 const newCardButton = document.querySelector('.profile__add-button');
@@ -28,6 +28,7 @@ const popupForCard = document.querySelector('.popup_type_card');
 const popupFormForCard = popupForCard.querySelector('.popup__form');
 const placeInput = popupForCard.querySelector('.popup__input_type_place');
 const linkInput = popupForCard.querySelector('.popup__input_type_link');
+const submitButtonForPhoto = popupForCard.querySelector('.popup__button');
 
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
@@ -91,6 +92,10 @@ editButton.addEventListener('click', () => {
 
 newCardButton.addEventListener('click', () => {
     openPopup(popupForCard);
+
+    if ((placeInput.value && linkInput.value) === '') {
+        addCardFormValidator.disableSubmitBtn(submitButtonForPhoto);
+    };
 
     addCardFormValidator.enableValidation();
 });

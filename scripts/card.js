@@ -1,6 +1,6 @@
 import {
     openPopup
-} from "./utils/function.js";
+} from "./utils/utils.js";
 
 export class Card {
     constructor(link, name, selector) {

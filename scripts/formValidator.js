@@ -9,16 +9,9 @@ export class FormValidator {
         });
         this._setInputValidation(this._formSelector, this._selectors);
     };
-    disableSubmitBtn() {
-        const popupForCard = document.querySelector('.popup_type_card');
-        const placeInput = popupForCard.querySelector('.popup__input_type_place');
-        const linkInput = popupForCard.querySelector('.popup__input_type_link');
-        const submitButtonForPhoto = popupForCard.querySelector('.popup__button');
-
-        if ((placeInput.value && linkInput.value) === '') {
-            submitButtonForPhoto.classList.add(this._selectors.inactiveButtonClass);
-            submitButtonForPhoto.disabled = true;
-        };
+    disableSubmitBtn(submitBtnElement) {
+        submitBtnElement.classList.add(this._selectors.inactiveButtonClass);
+        submitBtnElement.disabled = true;
     }
     _setInputValidation(form, {
         inputSelector,

@@ -43,6 +43,8 @@ const selectorsForValidation = {
 
 const addCardFormValidator = new FormValidator(popupFormForCard, selectorsForValidation);
 const editProfileFormValidator = new FormValidator(popupFormForProfile, selectorsForValidation);
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
 function handleProfileSubmit() {
     profileName.textContent = nameInput.value;
@@ -86,8 +88,6 @@ editButton.addEventListener('click', () => {
 
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-
-    editProfileFormValidator.enableValidation();
 });
 
 newCardButton.addEventListener('click', () => {
@@ -96,8 +96,6 @@ newCardButton.addEventListener('click', () => {
     if ((placeInput.value && linkInput.value) === '') {
         addCardFormValidator.disableSubmitBtn(submitButtonForPhoto);
     };
-
-    addCardFormValidator.enableValidation();
 });
 
 renderInitialCards();
